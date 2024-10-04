@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  padding: 20px;
+}
+
+form > * {
+  margin-bottom: 15px;
+}
