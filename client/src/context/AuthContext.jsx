@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     if (auth.token) {
       // Fetch user data
       axios
-        .get('/api/auth/user', {
+        .get('http://localhost:5000/api/auth/user', {
           headers: { Authorization: `Bearer ${auth.token}` },
         })
         .then((response) => {

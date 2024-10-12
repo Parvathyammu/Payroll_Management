@@ -1,10 +1,13 @@
-body {
+html, body, #root {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  height: 100%;
 }
 
 .App {
-  padding: 20px;
+  min-height: 100vh; /* Ensures the app fills the viewport */
+  display: flex;
+  flex-direction: column;
 }
 
 form > * {

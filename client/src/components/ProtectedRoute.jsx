@@ -4,10 +4,10 @@ import { AuthContext } from '../context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
   const { auth } = useContext(AuthContext);
-  if (!auth.token) {
-    return <Navigate to="/login" />;
-  }
+
+  // If you want to allow access to all users, just return the children component directly.
   return children;
+
 };
 
 export default ProtectedRoute;
