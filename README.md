@@ -1,70 +1,165 @@
-# Getting Started with Create React App
+# Payroll Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive full-stack web application for managing employee payroll, attendance, and HR operations.
 
-## Available Scripts
+## 🏗️ SYSTEM ARCHITECTURE
 
-In the project directory, you can run:
+### **Frontend (React.js)**
+- **Location**: `/client` directory
+- **Framework**: React 18 with Material-UI components
+- **Architecture**: Single Page Application (SPA) with client-side routing
+- **State Management**: React Context API for authentication
+- **Styling**: Material-UI (MUI) for professional, responsive design
 
-### `npm start`
+### **Backend (Node.js/Express)**
+- **Location**: `/backend` directory  
+- **Framework**: Express.js REST API server
+- **Database**: PostgreSQL with connection pooling
+- **Authentication**: JWT tokens with bcrypt password hashing
+- **Architecture**: Modular route-based structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📁 PROJECT STRUCTURE EXPLAINED
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+payroll/
+├── README.md                    # Project documentation (this file)
+├── backend/                     # Node.js/Express API Server
+│   ├── index.js                # Main server entry point with middleware setup
+│   ├── package.json            # Backend dependencies and scripts
+│   ├── DEPENDENCIES.md         # Detailed explanation of backend packages
+│   ├── config/
+│   │   └── db.js               # PostgreSQL connection pool configuration
+│   └── routes/                 # Modular API route handlers
+│       ├── attendanceRoutes.js # Employee time tracking endpoints
+│       ├── dashboardRoutes.js  # Dashboard analytics and metrics
+│       ├── employeeRoutes.js   # Employee CRUD operations
+│       ├── leaveRoutes.js      # Leave management system
+│       ├── payrollRoutes.js    # Salary calculations and records
+│       ├── reportRoutes.js     # Reports and analytics
+│       └── userRoutes.js       # Authentication (login/register)
+└── client/                     # React.js Frontend Application
+    ├── package.json            # Frontend dependencies and build scripts
+    ├── DEPENDENCIES.md         # Detailed explanation of frontend packages
+    ├── public/                 # Static assets and HTML template
+    ├── build/                  # Production build output (auto-generated)
+    └── src/                    # React source code
+        ├── index.js            # React application entry point with providers
+        ├── App.js              # Main component with routing configuration
+        ├── App.css             # Global application styles
+        ├── components/         # Reusable React components
+        │   ├── Navbar.jsx                    # Main navigation bar
+        │   ├── ProtectedRoute.jsx            # Authentication guard component
+        │   ├── Authentication/               # Login and registration forms
+        │   │   ├── Login.jsx                # User login interface
+        │   │   └── Register.jsx             # User registration form
+        │   ├── Dashboard/                   # Main dashboard with metrics
+        │   │   └── Dashboard.jsx            # Overview charts and statistics
+        │   ├── Employees/                   # Employee management interfaces
+        │   │   ├── EmployeeList.jsx         # Employee data table with actions
+        │   │   ├── AddEmployee.jsx          # New employee creation form
+        │   │   └── EditEmployee.jsx         # Employee information editing
+        │   ├── Payroll/                     # Payroll processing interfaces
+        │   │   ├── PayrollList.jsx          # Payroll records display
+        │   │   └── AddPayroll.jsx           # Payroll calculation form
+        │   ├── Attendance/                  # Time tracking interfaces
+        │   │   └── Attendance.jsx           # Check-in/check-out system
+        │   ├── Leave/                       # Leave management interfaces
+        │   │   └── LeaveManagement.jsx      # Leave requests and approvals
+        │   └── Reports/                     # Analytics and reporting
+        │       └── Reports.jsx              # Data visualization and exports
+        ├── context/                         # React Context for global state
+        │   └── AuthContext.jsx              # Authentication state management
+        └── services/                        # External service integrations
+            └── api.js                       # Centralized HTTP client with interceptors
+```
 
-### `npm test`
+## 🚀 KEY FEATURES
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Employee Management**
+- Complete CRUD operations for employee records
+- Employee profile management with personal and job details
+- Role-based access control (Admin, HR, Employee)
 
-### `npm run build`
+### **Payroll Processing**
+- Automated salary calculations with tax deductions
+- Monthly/bi-weekly payroll generation
+- Payroll history and records management
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Attendance Tracking**
+- Daily check-in/check-out functionality
+- Attendance rate calculations and monitoring
+- Late arrival and absence tracking
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Leave Management**
+- Leave request submission and approval workflow
+- Leave balance tracking and management
+- Different leave types (vacation, sick, personal)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Dashboard & Analytics**
+- Real-time dashboard with key metrics
+- Interactive charts using Chart.js
+- Employee statistics and payroll summaries
 
-### `npm run eject`
+### **Reports & Analytics**
+- Comprehensive reporting system
+- Data export functionality
+- Performance metrics and insights
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 💻 TECHNOLOGY STACK
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Frontend Technologies**
+- **React 18**: Modern React with hooks and functional components
+- **Material-UI**: Professional component library with Material Design
+- **React Router**: Client-side routing for SPA navigation
+- **Chart.js**: Interactive data visualization and charts
+- **Axios**: HTTP client with request/response interceptors
+- **Context API**: Global state management for authentication
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **Backend Technologies**
+- **Node.js**: JavaScript runtime for server-side development
+- **Express.js**: Fast, minimalist web framework
+- **PostgreSQL**: Robust relational database management
+- **bcrypt**: Secure password hashing and authentication
+- **JWT**: Token-based authentication system
+- **CORS**: Cross-origin resource sharing for API access
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔧 DEVELOPMENT SETUP
 
-## Learn More
+### **Prerequisites**
+- Node.js (v14 or higher)
+- PostgreSQL database
+- npm or yarn package manager
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Backend Setup**
+```bash
+cd backend
+npm install                    # Install dependencies
+# Configure .env file with database credentials
+npm run dev                    # Start development server with nodemon
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Frontend Setup**
+```bash
+cd client
+npm install                    # Install dependencies
+npm start                      # Start React development server
+```
 
-### Code Splitting
+## 🔒 SECURITY FEATURES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Password Security**: bcrypt hashing with salt rounds
+- **Authentication**: JWT token-based authentication
+- **SQL Injection Prevention**: Parameterized queries with pg library
+- **CORS Protection**: Configured cross-origin resource sharing
+- **Environment Variables**: Secure configuration management
 
-### Analyzing the Bundle Size
+## 📊 DATABASE DESIGN
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application uses PostgreSQL with the following main tables:
+- **employees**: Employee personal and job information
+- **users**: Authentication and user account data
+- **payroll**: Salary calculations and payment records
+- **attendance**: Daily check-in/check-out tracking
+- **leaves**: Leave requests and approval status
+- **DashboardView**: Aggregated view for dashboard metrics
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
