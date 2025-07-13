@@ -32,11 +32,10 @@ const ProtectedRoute = ({ children }) => {
   // Get current authentication status from context
   const { auth } = useContext(AuthContext);
 
-  // AUTHENTICATION CHECK (Currently Disabled)
-  // Uncomment the following lines to enable authentication protection:
-  // if (!auth.token) {
-  //   return <Navigate to="/login" replace />;
-  // }
+  // AUTHENTICATION CHECK 
+  if (!auth.token) {
+  return <Navigate to="/login" replace />;
+  }
 
   // RENDER CHILD COMPONENTS
   // If user is authenticated (or auth is disabled), render the protected content
