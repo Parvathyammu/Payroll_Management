@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+"node_modules/" 
+".cache/" 
+node_modules/ 
+.cache/ 
+client/node_modules/ 
+client/.cache/ 
